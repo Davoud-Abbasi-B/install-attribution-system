@@ -1,0 +1,16 @@
+services:
+  install_postgres:
+    image: postgres:16
+    container_name: install_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: install_tracking
+      POSTGRES_PASSWORD: install_tracking
+      POSTGRES_DB: install_tracking
+    ports:
+      - "5434:5432"
+    volumes:
+      - install_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  install_postgres_data:
